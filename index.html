@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Find the key!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script> 
+      $(document).ready(function(){
+          $("#submit").click(function(){
+              var secretPwd = "TIENGEMDIU"
+              var pwd = $("#typePassword").val();
+              if (pwd == "") {
+                  pwdError = "Hãy nhập câu trả lời của bạn.";
+                  $("#error").text(pwdError)
+                  $('input[type="password"]').focus();
+              } else if (pwd != secretPwd){
+                  invalidError = "Câu trả lời sai rồi.";
+                  $("#error").text(invalidError)
+                  $('input[type="password"]').focus();
+              } else {
+                  messageSuccess = "Chính xác.";
+                  $("#error").text("")
+                  $("#success").text(messageSuccess)
+
+                  let src = ".//Eliah.png";
+                  var img = document.createElement("img");
+                  img.src = src;
+                  img.width = 1920;
+                  img.height = 300;
+                  img.alt = "Eliah Key";
+                  document.body.appendChild(img);
+                  document.getElementById("submit").disabled = true;
+                  document.getElementById("typePassword").disabled = true;
+              }
+          });
+
+          $("#showPwd").click(function(){
+            var input = document.getElementById("typePassword");
+            if (input.type === "password") {
+              input.type = "text";
+            } else {
+              input.type = "password";
+            }
+          });
+      });
+  </script>
+
+  <style>
+
+    .center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px;
+    }
+
+    .gradient-custom {
+  
+        /* fallback for old browsers */
+        background: #6a11cb;
+        
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+      }
+
+    #error{
+      color: white;
+    }
+
+    #success{
+      color: yellow;
+    }
+
+    h2{
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: white;
+      text-align: center;
+      font-size: 2.5em;
+    }
+
+  
+  </style>
+</head>
+  <body>
+        <div class="center gradient-custom col-lg-12">
+            <div class="col-lg-12">
+              <h2 class="col-lg-12">Find the key!</h2>
+              <p class="col-lg-12">Câu trả lời gồm 10 chữ cái, viết liền, không dấu, viết hoa tất cả các chữ!</p>
+    
+              <div class="col-lg-12 input-group input-group-lg">
+                <input type="text" id="typePassword" class="form-control input-lg">
+                <br/>
+                <span>
+                  <button id="submit" class="btn btn-dark btn-lg btn-block" type="submit">Kiểm tra</button>
+                </span>
+              </div>
+    
+              <p id="error"></p>
+              <p id="success"></p>
+            </div>
+          
+
+        </div>
+  </body>
+
+</html>
