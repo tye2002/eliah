@@ -7,47 +7,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="script.js" ></script>
 
-    <script> 
-      $(document).ready(function(){
-          $("#submit").click(function(){
-              var secretPwd = "TIENGEMDIU"
-              var pwd = $("#typePassword").val();
-              if (pwd == "") {
-                  pwdError = "Hãy nhập câu trả lời của bạn.";
-                  $("#error").text(pwdError)
-                  $('input[type="password"]').focus();
-              } else if (pwd != secretPwd){
-                  invalidError = "Câu trả lời sai rồi.";
-                  $("#error").text(invalidError)
-                  $('input[type="password"]').focus();
-              } else {
-                  messageSuccess = "Chính xác.";
-                  $("#error").text("")
-                  $("#success").text(messageSuccess)
-
-                  let src = ".//Eliah.png";
-                  var img = document.createElement("img");
-                  img.src = src;
-                  img.width = 1920;
-                  img.height = 300;
-                  img.alt = "Eliah Key";
-                  document.body.appendChild(img);
-                  document.getElementById("submit").disabled = true;
-                  document.getElementById("typePassword").disabled = true;
-              }
-          });
-
-          $("#showPwd").click(function(){
-            var input = document.getElementById("typePassword");
-            if (input.type === "password") {
-              input.type = "text";
-            } else {
-              input.type = "password";
-            }
-          });
-      });
-  </script>
+    <script>
+      document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+      }, false);
+      </script>
 
   <style>
 
